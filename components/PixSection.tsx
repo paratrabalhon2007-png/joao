@@ -16,7 +16,7 @@ export const PixSection: React.FC = () => {
   };
 
   return (
-    <div className="bg-zinc-900/50 backdrop-blur-sm rounded-[2.5rem] shadow-2xl shadow-black border border-zinc-800 p-8 md:p-14 transition-all">
+    <div className="bg-zinc-900/50 backdrop-blur-sm rounded-[2.5rem] border border-zinc-800 p-8 md:p-14 transition-all">
       <div className="flex flex-col items-center text-center">
         <div className="w-20 h-20 bg-blue-600/20 text-blue-400 rounded-3xl flex items-center justify-center mb-8 rotate-3 shadow-inner border border-blue-500/20">
           <i className="fa-solid fa-wallet text-4xl"></i>

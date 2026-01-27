@@ -1,9 +1,9 @@
 
 import React, { useCallback } from 'react';
-import { Header } from './components/Header';
-import { PixSection } from './components/PixSection';
-import { HistorySection } from './components/HistorySection';
-import { Footer } from './components/Footer';
+import { Header } from './components/Header.tsx';
+import { PixSection } from './components/PixSection.tsx';
+import { HistorySection } from './components/HistorySection.tsx';
+import { Footer } from './components/Footer.tsx';
 
 const App: React.FC = () => {
   const scrollToSection = useCallback((id: string) => {
@@ -20,8 +20,11 @@ const App: React.FC = () => {
       <main className="flex-grow">
         {/* Hero Section */}
         <div className="bg-[#0a0a0a] py-20 px-4 relative overflow-hidden">
-          {/* Subtle Glow Background */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[500px] bg-blue-600/10 blur-[120px] pointer-events-none rounded-full"></div>
+          {/* Novo Efeito de Fundo: Grade sutil e Spotlight suave */}
+          <div className="absolute inset-0 z-0 opacity-20 pointer-events-none" 
+               style={{ backgroundImage: `radial-gradient(#27272a 0.5px, transparent 0.5px)`, backgroundSize: '24px 24px' }}>
+          </div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(ellipse_at_top,_rgba(37,99,235,0.05)_0%,_transparent_70%)] pointer-events-none"></div>
           
           <div className="max-w-4xl mx-auto text-center relative z-10">
             <h1 className="text-5xl md:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]">
@@ -36,7 +39,7 @@ const App: React.FC = () => {
             <div className="mt-12 hidden sm:grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto px-4">
               <button 
                 onClick={() => scrollToSection('contribuir')}
-                className="group p-5 bg-zinc-900/50 backdrop-blur-sm rounded-2xl border border-zinc-800 shadow-sm flex flex-col items-center text-center outline-none"
+                className="group p-5 bg-zinc-900/50 backdrop-blur-sm rounded-2xl border border-zinc-800 shadow-sm flex flex-col items-center text-center outline-none transition-all hover:border-zinc-700 hover:bg-zinc-900/80"
               >
                 <div className="w-12 h-12 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center mb-3 shadow-inner">
                   <i className="fa-solid fa-hand-holding-dollar text-xl"></i>
@@ -49,7 +52,7 @@ const App: React.FC = () => {
               
               <button 
                 onClick={() => scrollToSection('historia')}
-                className="group p-5 bg-zinc-900/50 backdrop-blur-sm rounded-2xl border border-zinc-800 shadow-sm flex flex-col items-center text-center outline-none"
+                className="group p-5 bg-zinc-900/50 backdrop-blur-sm rounded-2xl border border-zinc-800 shadow-sm flex flex-col items-center text-center outline-none transition-all hover:border-zinc-700 hover:bg-zinc-900/80"
               >
                 <div className="w-12 h-12 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center mb-3 shadow-inner">
                   <i className="fa-solid fa-book-open text-xl"></i>
@@ -64,7 +67,7 @@ const App: React.FC = () => {
                 href="https://drive.google.com/drive/folders/1skePBNBT14b1Nui2agkhTH6LPQd52YZm?usp=sharing" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="group p-5 bg-blue-600 rounded-2xl border border-blue-500 shadow-blue-900/20 shadow-lg flex flex-col items-center text-center"
+                className="group p-5 bg-blue-600 rounded-2xl border border-blue-500 shadow-blue-900/20 shadow-lg flex flex-col items-center text-center transition-all hover:bg-blue-500 hover:scale-[1.02]"
               >
                 <div className="w-12 h-12 bg-white/10 text-white rounded-xl flex items-center justify-center mb-3">
                   <i className="fa-brands fa-google-drive text-xl"></i>
