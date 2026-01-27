@@ -42,18 +42,8 @@ export const PixSection: React.FC = () => {
           </button>
         </div>
 
-        {/* Botão de Acesso ao Drive - Agora posicionado abaixo do PIX no Mobile */}
-        <a 
-          href="https://drive.google.com/drive/folders/1skePBNBT14b1Nui2agkhTH6LPQd52YZm?usp=sharing" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="sm:hidden mt-8 flex items-center justify-center gap-3 bg-green-600 hover:bg-green-700 text-white py-3.5 px-8 rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg shadow-green-900/20 transition-all active:scale-95 w-fit"
-        >
-          <i className="fa-brands fa-google-drive text-lg"></i>
-          Abrir Drive do Concurseiro
-        </a>
-
-        <div className="mt-10 flex flex-col items-center gap-5 w-full">
+        {/* Ações Inferiores */}
+        <div className="mt-10 flex flex-col items-center gap-6 w-full">
           <button
             onClick={handleCopy}
             className={`w-full max-w-md py-5 px-10 rounded-2xl font-black text-lg transition-all transform active:scale-95 flex items-center justify-center gap-4 ${
@@ -77,6 +67,17 @@ export const PixSection: React.FC = () => {
             <i className="fa-solid fa-shield-halved text-blue-500/70"></i>
             Pagamento Seguro via Mercado Pago
           </div>
+
+          {/* Botão de Acesso ao Drive - Posicionado ao final no Mobile conforme solicitado */}
+          <a 
+            href="https://drive.google.com/drive/folders/1skePBNBT14b1Nui2agkhTH6LPQd52YZm?usp=sharing" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="sm:hidden flex items-center justify-center gap-3 bg-green-600 hover:bg-green-700 text-white py-3.5 px-8 rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg shadow-green-900/20 transition-all active:scale-95 w-fit"
+          >
+            <i className="fa-brands fa-google-drive text-lg"></i>
+            Abrir Drive do Concurseiro
+          </a>
         </div>
       </div>
     </div>
