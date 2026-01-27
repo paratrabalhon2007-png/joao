@@ -26,14 +26,14 @@ export const PixSection: React.FC = () => {
           Para manter o <strong className="text-zinc-200">Drive do Concurseiro</strong> ativo, sua contribuição é o que paga os servidores e garante novas atualizações mensais.
         </p>
 
-        {/* Botão de Acesso ao Drive - Visível apenas no Mobile */}
+        {/* Botão de Acesso ao Drive - Ajustado para Verde e Menos Largo */}
         <a 
           href="https://drive.google.com/drive/folders/1skePBNBT14b1Nui2agkhTH6LPQd52YZm?usp=sharing" 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="w-full sm:hidden mb-10 flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700 text-white py-4 px-6 rounded-2xl font-black text-sm uppercase tracking-widest shadow-lg shadow-blue-900/20 transition-all active:scale-95"
+          className="sm:hidden mb-10 flex items-center justify-center gap-3 bg-green-600 hover:bg-green-700 text-white py-3.5 px-8 rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg shadow-green-900/20 transition-all active:scale-95 w-fit"
         >
-          <i className="fa-brands fa-google-drive text-xl"></i>
+          <i className="fa-brands fa-google-drive text-lg"></i>
           Abrir Drive do Concurseiro
         </a>
 
