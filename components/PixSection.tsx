@@ -16,26 +16,26 @@ export const PixSection: React.FC = () => {
   };
 
   return (
-    <div className="bg-white rounded-[2.5rem] shadow-2xl shadow-gray-200/50 border border-gray-100 p-8 md:p-14 transition-all">
+    <div className="bg-zinc-900/50 backdrop-blur-sm rounded-[2.5rem] shadow-2xl shadow-black border border-zinc-800 p-8 md:p-14 transition-all">
       <div className="flex flex-col items-center text-center">
-        <div className="w-20 h-20 bg-blue-50 text-blue-600 rounded-3xl flex items-center justify-center mb-8 rotate-3">
+        <div className="w-20 h-20 bg-blue-600/20 text-blue-400 rounded-3xl flex items-center justify-center mb-8 rotate-3 shadow-inner border border-blue-500/20">
           <i className="fa-solid fa-wallet text-4xl"></i>
         </div>
-        <h2 className="text-3xl font-black mb-4 text-gray-900">Contribuição Consciente</h2>
-        <p className="text-gray-500 mb-10 max-w-lg leading-relaxed">
-          Para manter o <strong>Drive do Concurseiro</strong> ativo, sua contribuição é o que paga os servidores e garante novas atualizações mensais.
+        <h2 className="text-3xl font-black mb-4 text-white">Contribuição Consciente</h2>
+        <p className="text-zinc-400 mb-10 max-w-lg leading-relaxed">
+          Para manter o <strong className="text-zinc-200">Drive do Concurseiro</strong> ativo, sua contribuição é o que paga os servidores e garante novas atualizações mensais.
         </p>
 
-        <div className="w-full max-w-2xl relative group bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200 p-2 focus-within:border-blue-400 transition-colors">
+        <div className="w-full max-w-2xl relative group bg-black/40 rounded-2xl border-2 border-dashed border-zinc-800 p-2 focus-within:border-blue-500/50 transition-colors">
           <textarea
             readOnly
             value={PIX_CODE}
-            className="w-full bg-transparent p-4 pr-14 text-sm text-gray-500 font-mono resize-none focus:outline-none h-28 leading-relaxed overflow-hidden"
+            className="w-full bg-transparent p-4 pr-14 text-sm text-zinc-500 font-mono resize-none focus:outline-none h-28 leading-relaxed overflow-hidden"
             onClick={(e) => (e.target as HTMLTextAreaElement).select()}
           />
           <button 
             onClick={handleCopy}
-            className="absolute top-4 right-4 w-10 h-10 bg-white shadow-md rounded-lg flex items-center justify-center text-gray-400 hover:text-blue-600 hover:scale-110 transition-all"
+            className="absolute top-4 right-4 w-10 h-10 bg-zinc-800 shadow-md rounded-lg flex items-center justify-center text-zinc-400 hover:text-blue-500 transition-all border border-zinc-700"
           >
             <i className={`fa-solid ${copied ? 'fa-check text-green-500' : 'fa-copy'}`}></i>
           </button>
@@ -45,7 +45,7 @@ export const PixSection: React.FC = () => {
           <button
             onClick={handleCopy}
             className={`w-full max-w-md py-5 px-10 rounded-2xl font-black text-lg transition-all transform active:scale-95 flex items-center justify-center gap-4 ${
-              copied ? 'bg-green-600 shadow-green-200' : 'bg-blue-600 hover:bg-blue-700 shadow-blue-200 shadow-xl'
+              copied ? 'bg-green-600' : 'bg-blue-600 hover:bg-blue-700 shadow-blue-900/20 shadow-xl'
             } text-white`}
           >
             {copied ? (
@@ -61,8 +61,8 @@ export const PixSection: React.FC = () => {
             )}
           </button>
           
-          <div className="flex items-center gap-2 text-gray-400 text-sm font-medium">
-            <i className="fa-solid fa-shield-halved text-blue-400"></i>
+          <div className="flex items-center gap-2 text-zinc-500 text-sm font-medium">
+            <i className="fa-solid fa-shield-halved text-blue-500/70"></i>
             Pagamento Seguro via Mercado Pago
           </div>
         </div>

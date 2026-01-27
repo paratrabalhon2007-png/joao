@@ -14,46 +14,49 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col selection:bg-blue-100">
+    <div className="min-h-screen flex flex-col selection:bg-blue-600/30">
       <Header onNavigate={scrollToSection} />
       
       <main className="flex-grow">
         {/* Hero Section */}
-        <div className="bg-gradient-to-b from-white to-gray-50 py-20 px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-black text-gray-900 mb-6 tracking-tight leading-[1.1]">
-              Drive do <span className="text-blue-600">Concurseiro</span>
+        <div className="bg-[#0a0a0a] py-20 px-4 relative overflow-hidden">
+          {/* Subtle Glow Background */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[500px] bg-blue-600/10 blur-[120px] pointer-events-none rounded-full"></div>
+          
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <h1 className="text-5xl md:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]">
+              Drive do <span className="text-blue-500">Concurseiro</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
               O maior repositório colaborativo de materiais para concursos. 
-              <span className="font-semibold text-gray-900 italic block mt-2">Feito por quem estuda, para quem estuda.</span>
+              <span className="font-semibold text-zinc-200 italic block mt-2">Feito por quem estuda, para quem estuda.</span>
             </p>
             
             {/* Acessos Rápidos - Visible only on Desktop (sm and up) */}
             <div className="mt-12 hidden sm:grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto px-4">
               <button 
                 onClick={() => scrollToSection('contribuir')}
-                className="group p-5 bg-white rounded-2xl border border-gray-100 shadow-sm flex flex-col items-center text-center outline-none"
+                className="group p-5 bg-zinc-900/50 backdrop-blur-sm rounded-2xl border border-zinc-800 shadow-sm flex flex-col items-center text-center outline-none"
               >
-                <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-3 shadow-inner">
+                <div className="w-12 h-12 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center mb-3 shadow-inner">
                   <i className="fa-solid fa-hand-holding-dollar text-xl"></i>
                 </div>
                 <div>
-                  <p className="font-bold text-gray-900">Apoiar Projeto</p>
-                  <p className="text-[10px] text-gray-400 uppercase font-bold tracking-widest">Contribuição</p>
+                  <p className="font-bold text-zinc-100">Apoiar Projeto</p>
+                  <p className="text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Contribuição</p>
                 </div>
               </button>
               
               <button 
                 onClick={() => scrollToSection('historia')}
-                className="group p-5 bg-white rounded-2xl border border-gray-100 shadow-sm flex flex-col items-center text-center outline-none"
+                className="group p-5 bg-zinc-900/50 backdrop-blur-sm rounded-2xl border border-zinc-800 shadow-sm flex flex-col items-center text-center outline-none"
               >
-                <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-3 shadow-inner">
+                <div className="w-12 h-12 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center mb-3 shadow-inner">
                   <i className="fa-solid fa-book-open text-xl"></i>
                 </div>
                 <div>
-                  <p className="font-bold text-gray-900">Nossa História</p>
-                  <p className="text-[10px] text-gray-400 uppercase font-bold tracking-widest">Transparência</p>
+                  <p className="font-bold text-zinc-100">Nossa História</p>
+                  <p className="text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Transparência</p>
                 </div>
               </button>
 
@@ -61,9 +64,9 @@ const App: React.FC = () => {
                 href="https://drive.google.com/drive/folders/1skePBNBT14b1Nui2agkhTH6LPQd52YZm?usp=sharing" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="group p-5 bg-blue-600 rounded-2xl border border-blue-500 shadow-blue-200 shadow-lg flex flex-col items-center text-center"
+                className="group p-5 bg-blue-600 rounded-2xl border border-blue-500 shadow-blue-900/20 shadow-lg flex flex-col items-center text-center"
               >
-                <div className="w-12 h-12 bg-white/20 text-white rounded-xl flex items-center justify-center mb-3">
+                <div className="w-12 h-12 bg-white/10 text-white rounded-xl flex items-center justify-center mb-3">
                   <i className="fa-brands fa-google-drive text-xl"></i>
                 </div>
                 <div>
