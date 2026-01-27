@@ -3,18 +3,14 @@ import React, { useState, useEffect, useRef } from 'react';
 
 export const PixSection: React.FC = () => {
   const PIX_CODE = "00020101021126810014BR.GOV.BCB.PIX2559pix-qr.mercadopago.com/instore/ol/v2/3Z92vwxO3Le6HS6SjSFvON5204000053039865802BR5923Joao Victor Concurseiro6009SAO PAULO62080504mpis6304342A";
-  const DRIVE_LINK = "https://drive.google.com/drive/folders/1skePBNBT14b1Nui2agkhTH6LPQd52YZm?usp=sharing";
   const NOTIFICATION_SOUND_URL = "https://orafaaah.com/wp-content/uploads/2025/10/msg.mp3";
   
   const [copied, setCopied] = useState(false);
-  const [showDriveModal, setShowDriveModal] = useState(false);
   const [showWhatsAppToast, setShowWhatsAppToast] = useState(false);
   
-  // Referência para o áudio para evitar recriação constante
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Pré-carregar o áudio
     audioRef.current = new Audio(NOTIFICATION_SOUND_URL);
   }, []);
 
@@ -24,25 +20,16 @@ export const PixSection: React.FC = () => {
       setCopied(true);
       setShowWhatsAppToast(true);
       
-      // Tocar o som da notificação
       if (audioRef.current) {
-        audioRef.current.currentTime = 0; // Reinicia o áudio se já estiver tocando
-        audioRef.current.play().catch(err => console.debug("Erro ao tocar áudio (interação necessária):", err));
+        audioRef.current.currentTime = 0;
+        audioRef.current.play().catch(err => console.debug("Audio play blocked", err));
       }
       
-      // Resetar estado de copiado após 3 segundos
       setTimeout(() => setCopied(false), 3000);
-      
-      // Esconder notificação do WhatsApp após 5 segundos
       setTimeout(() => setShowWhatsAppToast(false), 5000);
     } catch (err) {
-      alert("Erro ao copiar código. Por favor, tente selecionar manualmente.");
+      alert("Erro ao copiar código.");
     }
-  };
-
-  const handleOpenDrive = () => {
-    setShowDriveModal(false);
-    window.open(DRIVE_LINK, "_blank");
   };
 
   return (
@@ -64,10 +51,7 @@ export const PixSection: React.FC = () => {
                 Mande o comprovante no WhatsApp do atendente para <strong className="text-zinc-200">permanecer com o acesso</strong>.
               </p>
             </div>
-            <button 
-              onClick={() => setShowWhatsAppToast(false)}
-              className="ml-2 text-zinc-600 hover:text-white transition-colors"
-            >
+            <button onClick={() => setShowWhatsAppToast(false)} className="ml-2 text-zinc-600 hover:text-white transition-colors">
               <i className="fa-solid fa-xmark"></i>
             </button>
           </div>
@@ -91,15 +75,11 @@ export const PixSection: React.FC = () => {
             className="w-full bg-transparent p-4 pr-14 text-sm text-zinc-500 font-mono resize-none focus:outline-none h-28 leading-relaxed overflow-hidden"
             onClick={(e) => (e.target as HTMLTextAreaElement).select()}
           />
-          <button 
-            onClick={handleCopy}
-            className="absolute top-4 right-4 w-10 h-10 bg-zinc-800 shadow-md rounded-lg flex items-center justify-center text-zinc-400 hover:text-blue-500 transition-all border border-zinc-700"
-          >
+          <button onClick={handleCopy} className="absolute top-4 right-4 w-10 h-10 bg-zinc-800 shadow-md rounded-lg flex items-center justify-center text-zinc-400 hover:text-blue-500 transition-all border border-zinc-700">
             <i className={`fa-solid ${copied ? 'fa-check text-green-500' : 'fa-copy'}`}></i>
           </button>
         </div>
 
-        {/* Ações Inferiores */}
         <div className="mt-10 flex flex-col items-center gap-6 w-full">
           <button
             onClick={handleCopy}
@@ -108,15 +88,9 @@ export const PixSection: React.FC = () => {
             } text-white`}
           >
             {copied ? (
-              <>
-                <i className="fa-solid fa-check-circle animate-pulse"></i>
-                PIX COPIADO!
-              </>
+              <><i className="fa-solid fa-check-circle animate-pulse"></i>PIX COPIADO!</>
             ) : (
-              <>
-                <i className="fa-solid fa-copy"></i>
-                COPIAR CÓDIGO PIX
-              </>
+              <><i className="fa-solid fa-copy"></i>COPIAR CÓDIGO PIX</>
             )}
           </button>
           
@@ -124,49 +98,8 @@ export const PixSection: React.FC = () => {
             <i className="fa-solid fa-shield-halved text-blue-500/70"></i>
             Pagamento Seguro via Mercado Pago
           </div>
-
-          {/* Botão de Acesso ao Drive (Mobile Only) */}
-          <button 
-            onClick={() => setShowDriveModal(true)}
-            className="sm:hidden flex items-center justify-center gap-3 bg-green-600 hover:bg-green-700 text-white py-3.5 px-8 rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg shadow-green-900/20 transition-all active:scale-95 w-fit"
-          >
-            <i className="fa-brands fa-google-drive text-lg"></i>
-            Abrir Drive do Concurseiro
-          </button>
         </div>
       </div>
-
-      {/* Modal de Notificação (Mobile/Global) */}
-      {showDriveModal && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-6 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
-          <div className="bg-zinc-900 border border-zinc-800 w-full max-w-sm rounded-[2.5rem] p-8 shadow-2xl animate-in zoom-in-95 duration-300">
-            <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-yellow-500/10 text-yellow-500 rounded-2xl flex items-center justify-center mb-6 border border-yellow-500/20">
-                <i className="fa-solid fa-circle-exclamation text-3xl"></i>
-              </div>
-              <h3 className="text-xl font-black text-white mb-3 tracking-tight">Aviso Importante!</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-8">
-                Para validar sua contribuição e <strong className="text-zinc-200">permanecer com o acesso</strong> ao Drive, você deve enviar o comprovante no WhatsApp do nosso atendente.
-              </p>
-              
-              <div className="flex flex-col w-full gap-3">
-                <button 
-                  onClick={handleOpenDrive}
-                  className="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-xl font-black text-xs uppercase tracking-widest transition-all active:scale-95"
-                >
-                  Entendi, Abrir Drive
-                </button>
-                <button 
-                  onClick={() => setShowDriveModal(false)}
-                  className="w-full bg-zinc-800 hover:bg-zinc-700 text-zinc-400 py-3 rounded-xl font-bold text-xs uppercase tracking-widest transition-all"
-                >
-                  Voltar
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

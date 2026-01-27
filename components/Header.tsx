@@ -7,10 +7,23 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showDriveModal, setShowDriveModal] = useState(false);
+  
+  const DRIVE_LINK = "https://drive.google.com/drive/folders/1skePBNBT14b1Nui2agkhTH6LPQd52YZm?usp=sharing";
 
   const handleMobileNav = (id: string) => {
     onNavigate(id);
     setIsMenuOpen(false);
+  };
+
+  const handleDriveAccess = () => {
+    setIsMenuOpen(false);
+    setShowDriveModal(true);
+  };
+
+  const handleConfirmAccess = () => {
+    setShowDriveModal(false);
+    window.open(DRIVE_LINK, "_blank");
   };
 
   return (
@@ -32,17 +45,11 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-5 text-sm font-semibold text-zinc-400">
-          <button 
-            onClick={() => onNavigate('contribuir')}
-            className="hover:text-blue-500 transition-all px-2 py-1"
-          >
-            Contribuir
-          </button>
-          <button 
-            onClick={() => onNavigate('historia')}
-            className="hover:text-blue-500 transition-all px-2 py-1"
-          >
-            Nossa História
+          <button onClick={() => onNavigate('contribuir')} className="hover:text-blue-500 transition-all px-2 py-1">Contribuir</button>
+          <button onClick={() => onNavigate('historia')} className="hover:text-blue-500 transition-all px-2 py-1">Nossa História</button>
+          <button onClick={handleDriveAccess} className="hover:text-blue-500 transition-all px-2 py-1 flex items-center gap-2">
+            <i className="fa-brands fa-google-drive"></i>
+            Acessar Drive
           </button>
           <button 
             onClick={() => onNavigate('contribuir')}
@@ -76,7 +83,14 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
             >
               Nossa História
             </button>
-            <div className="border-t border-zinc-800 mt-1 pt-1">
+            <div className="border-t border-zinc-800 mt-1 pt-1 space-y-0.5">
+              <button 
+                onClick={handleDriveAccess}
+                className="w-full text-left px-5 py-3 text-sm font-black text-blue-500 hover:bg-zinc-900 transition-colors uppercase tracking-widest flex items-center gap-2"
+              >
+                <i className="fa-brands fa-google-drive"></i>
+                Acessar Drive
+              </button>
               <button 
                 onClick={() => handleMobileNav('contribuir')}
                 className="w-full text-left px-5 py-3 text-sm font-black text-blue-500 hover:bg-zinc-900 transition-colors uppercase tracking-widest"
@@ -87,6 +101,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
           </div>
         )}
       </div>
-    </header>
-  );
-};
+
+      {/* Modal de Aviso Importante - Integrado no Header */}
+      {showDriveModal && (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-6 bg-black/80 backdrop-blur-sm animate-in fade
