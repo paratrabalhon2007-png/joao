@@ -22,9 +22,20 @@ export const PixSection: React.FC = () => {
           <i className="fa-solid fa-wallet text-4xl"></i>
         </div>
         <h2 className="text-3xl font-black mb-4 text-white">Contribuição Consciente</h2>
-        <p className="text-zinc-400 mb-10 max-w-lg leading-relaxed">
+        <p className="text-zinc-400 mb-6 max-w-lg leading-relaxed">
           Para manter o <strong className="text-zinc-200">Drive do Concurseiro</strong> ativo, sua contribuição é o que paga os servidores e garante novas atualizações mensais.
         </p>
+
+        {/* Botão de Acesso ao Drive - Visível apenas no Mobile */}
+        <a 
+          href="https://drive.google.com/drive/folders/1skePBNBT14b1Nui2agkhTH6LPQd52YZm?usp=sharing" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="w-full sm:hidden mb-10 flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700 text-white py-4 px-6 rounded-2xl font-black text-sm uppercase tracking-widest shadow-lg shadow-blue-900/20 transition-all active:scale-95"
+        >
+          <i className="fa-brands fa-google-drive text-xl"></i>
+          Abrir Drive do Concurseiro
+        </a>
 
         <div className="w-full max-w-2xl relative group bg-black/40 rounded-2xl border-2 border-dashed border-zinc-800 p-2 focus-within:border-blue-500/50 transition-colors">
           <textarea
