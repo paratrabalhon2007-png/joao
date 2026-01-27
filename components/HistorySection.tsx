@@ -56,8 +56,8 @@ export const HistorySection: React.FC = () => {
               <div className="w-12 h-12 bg-white text-blue-600 rounded-full flex items-center justify-center mx-auto shadow-lg">
                 <i className="fa-solid fa-heart"></i>
               </div>
-              <p className="font-bold leading-tight">Contribuição não é obrigatória</p>
-              <p className="text-xs text-blue-100">O acesso é livre para quem realmente precisa.</p>
+              <p className="font-bold leading-tight">Contribuição Consciente</p>
+              <p className="text-xs text-blue-100">Contribua com o valor que considerar justo para manter o projeto.</p>
             </div>
             <div className="space-y-4 p-6 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/10 hover:bg-white/20 transition-all">
               <div className="w-12 h-12 bg-white text-blue-600 rounded-full flex items-center justify-center mx-auto shadow-lg">
